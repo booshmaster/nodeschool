@@ -18,15 +18,20 @@ module.exports = function (stockRepository) {
         },
         getCount: function (req, res, next) {
             stockRepository.
-                getCount(req.params.isbn).
-                then(function (result) {
-                    if (result) {
-                        res.json({count: result});
-                    } else {
-                        next();
-                    }
-                }).
-                catch(next);
+            getCount(req.params.isbn).
+            then(function (result) {
+                if (result) {
+                    res.format({
+                        'text/html': function(){
+                            res.send('<div>Copies left: ' + result + '</div>');
+                        }
+                    });
+                    res.json({count: result});
+                } else {
+                    next();
+                }
+            }).
+            catch(next);
         },
         hello: function (req, res) {
             res.send('Hello World!');
