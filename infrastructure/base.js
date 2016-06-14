@@ -2,7 +2,7 @@ var heroin = require('heroin-js');
 
 var configurator = heroin(process.env.HEROKU_API_TOKEN);
 
-var base = { name: 'book-inventory-book',
+var base = { name: 'app-book-inventory',
     organization: undefined,
     region: 'us',
     maintenance: false,
@@ -24,7 +24,7 @@ var base = { name: 'book-inventory-book',
         'http-sni': { enabled: false } },
     formation: [ { process: 'web', quantity: 1, size: 'Free' } ],
     log_drains: [],
-    domains: [ 'book-inventory-book.herokuapp.com' ] };
+    domains: [ 'app-book-inventory.herokuapp.com' ] };
 
 module.exports = {
     configurator: configurator,
