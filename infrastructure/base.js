@@ -23,8 +23,7 @@ var base = { name: 'app-book-inventory',
         'http-end-to-end-continue': { enabled: false },
         'http-sni': { enabled: false } },
     formation: [ { process: 'web', quantity: 1, size: 'Free' } ],
-    log_drains: [],
-    domains: [ 'app-book-inventory.herokuapp.com' ] };
+    log_drains: [] };
 
 module.exports = {
     configurator: configurator,
